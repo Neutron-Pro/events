@@ -12,7 +12,7 @@ $listener = new TestListener();
 $events->register('project.start', $listener, 'start')
        ->register('project.end', $listener, 'end')
        ->register('project.end', $listener, 'testEnd')
-       ->register('project.start', $listener, 'start1');
+       ->register('project.start', $listener, 'start1', -2);
 
 $startEvent = new StartEvent('Test des events start');
 echo $startEvent->getMessage();
@@ -31,9 +31,10 @@ echo '<hr>';
 
 $events = new Events();
 $events->registers(
-    ['project.start', 'NeutronStars\Test\TestListener#start'],
-    ['project.end', 'NeutronStars\Test\TestListener#end'],
-    ['project.end', 'NeutronStars\Test\TestListener#testEnd']
+    ['name' => 'project.start', 'listener' => 'NeutronStars\Test\TestListener#start'],
+    ['name' => 'project.end', 'listener' => 'NeutronStars\Test\TestListener#end'],
+    ['name' => 'project.end', 'listener' => 'NeutronStars\Test\TestListener#testEnd'],
+    ['name' => 'project.start', 'listener' => 'NeutronStars\Test\TestListener#start1', 'priority' => -2]
 );
 $startEvent = new StartEvent('Test des events start');
 echo $startEvent->getMessage();

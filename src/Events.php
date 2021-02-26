@@ -22,8 +22,8 @@ class Events
     public function registers(...$listeners): Events
     {
         foreach ($listeners as $listener) {
-            $split = explode('#', $listener[1]);
-            $this->register($listener[0], new $split[0](), $split[1]);
+            $split = explode('#', $listener['listener']);
+            $this->register($listener['name'], new $split[0](), $split[1], $listener['priority'] ?? 0);
         }
         return $this;
     }
