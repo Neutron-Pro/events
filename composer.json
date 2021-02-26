@@ -1,0 +1,26 @@
+{
+    "name": "neutronstars/events",
+    "description": "Event Manager for PHP",
+    "type": "library",
+    "license": [ "Apache-2.0" ],
+    "authors": [
+        {
+            "name": "NeutronStars",
+            "email": "pro@neutronstars.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeutronStars\\Events\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NeutronStars\\Test\\": "test/"
+        }
+    }
+}
