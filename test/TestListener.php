@@ -5,11 +5,18 @@ use NeutronStars\Events\Listener;
 
 class TestListener implements Listener
 {
-    public function start(StartEvent $event) {
+    public function start(StartEvent $event)
+    {
         $event->setMessage('Debut des events');
     }
 
-    public function end(EndEvent $event) {
+    public function end(EndEvent $event)
+    {
         $event->setMessage('Fin des events');
+    }
+
+    public function testEnd(EndEvent $event)
+    {
+        $event->setMessage('Fin des events 2');
     }
 }
